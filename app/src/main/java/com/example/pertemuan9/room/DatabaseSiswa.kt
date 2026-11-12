@@ -13,7 +13,9 @@ abstract class DatabaseSiswa : RoomDatabase() {
 
         fun getDatabase(context: Context): DatabaseSiswa {
             return Instance ?: synchronized(lock = this){
-                // Implementasi builder akan ditambahkan di sini
-                TODO("Build database")
+                Room.databaseBuilder(context,
+                    klass = DatabaseSiswa::class.java,
+                    name = "siswa_database")
+                    .build().also { Instance=it }
     }
 }
