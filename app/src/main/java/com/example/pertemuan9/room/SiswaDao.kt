@@ -1,11 +1,16 @@
 package com.example.pertemuan9.room
 
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import kotlinx.coroutines.flow.Flow
+
+@Dao
 interface SiswaDao {
-    1 usage 1 Implementation
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insert(siswa: Siswa)
 
-    @Insert(onConflict = onConflictStrategy.IGNORE)
-    suspend fun insert(siswa : Siswa)
-
-    1 Usage 1 Implementation
-    @Query(vaue = "SELECT * from tblSiswa")
+    @Query(value = "SELECT * from tblSiswa ORDER BY nama ASC")
+    fun getAllSiswa(): Flow<List<Siswa>>
 }
