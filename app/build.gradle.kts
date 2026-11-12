@@ -52,10 +52,18 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    //icons
+    implementation(libs.compose.icons)
+
+    //Room
     implementation(libs.bundles.room)
     ksp(libs.room.compiler)
-    implementation(libs.compose.icons)
+
+    //ViewModel
     implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.lifecycle.runtime.compose)
+
+    // Navigasi
     implementation(libs.navigation.compose)
 }
